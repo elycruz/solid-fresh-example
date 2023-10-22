@@ -1,20 +1,28 @@
 # solid-fresh-example
 
-Solid, deno, and fresh, example project.
+[Solid protocol](https://solidproject.org/), [deno](https://deno.land), and [fresh](https://fresh.deno.dev/), example project based off of the [inrput]() solid demo.
 
-# Fresh project
+## Pre-requisites
 
-Your new Fresh project is ready to go. You can follow the Fresh "Getting
-Started" guide here: https://fresh.deno.dev/docs/getting-started
+- deno - https://deno.land/manual/getting_started/installation
+- inrupt pod: https://docs.inrupt.com/pod-spaces
 
 ### Usage
 
-Make sure to install Deno: https://deno.land/manual/getting_started/installation
-
-Then start the project:
+Starting the project:
 
 ```
 deno task start
 ```
 
-This will watch the project directory and restart as necessary.
+This watches the project directory and restarts the app as necessary.
+
+## Resources:
+
+- fresh "Getting Started": https://fresh.deno.dev/docs/getting-started
+- deno docs: https://docs.deno.com/
+- inrupt "Getting Started": https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/getting-started/
+
+## License
+
+MIT & Apache 2.0
