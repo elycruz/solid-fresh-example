@@ -1,3 +1,7 @@
+# solid-fresh-example
+
+Solid, deno, and fresh, example project.
+
 # Fresh project
 
 Your new Fresh project is ready to go. You can follow the Fresh "Getting
