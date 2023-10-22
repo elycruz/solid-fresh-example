@@ -1,6 +1,6 @@
 # solid-fresh-example
 
-[Solid protocol](https://solidproject.org/), [deno](https://deno.land), and [fresh](https://fresh.deno.dev/), example project based off of the [inrput]() solid demo.
+[Solid protocol](https://solidproject.org/), [deno](https://deno.land), and [fresh](https://fresh.deno.dev/), example project based off of the [inrput](https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/getting-started/) solid demo.
 
 ## Pre-requisites
 
