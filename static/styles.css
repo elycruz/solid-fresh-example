@@ -9,3 +9,7 @@
 fieldset {
   width: 100%;
 }
+
+.h-limit-wrapper {
+  max-block-size: 1598px;
+}
