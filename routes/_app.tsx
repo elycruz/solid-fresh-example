@@ -10,19 +10,19 @@ export default function App({ Component }: AppProps) {
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body>
-      <header className="x-app-bar">
-        <div className="h-limit-wrapper">
-          <hgroup>
-            <h1>Solid + Fresh Examples</h1>
-          </hgroup>
-        </div>
-      </header>
-      <Component/>
-      <footer>
-        <div className="h-limit-wrapper">
-          <p>&copy; elycruz 2023</p>
-        </div>
-      </footer>
+        <header className="x-app-bar">
+          <div className="h-limit-wrapper">
+            <hgroup>
+              <h1>Solid + Fresh Examples</h1>
+            </hgroup>
+          </div>
+        </header>
+        <Component />
+        <footer>
+          <div className="h-limit-wrapper">
+            <p>&copy; elycruz 2023</p>
+          </div>
+        </footer>
       </body>
     </html>
   );

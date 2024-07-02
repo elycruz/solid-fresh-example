@@ -1,7 +1,8 @@
 import SolidProtocolExample from "../islands/SolidProtocolExample.tsx";
 
 export default function Home() {
-  return (<main>
+  return (
+    <main>
       <header>
         <div className="h-limit-wrapper">
           <hgroup>
@@ -10,7 +11,7 @@ export default function Home() {
           </hgroup>
         </div>
       </header>
-      <SolidProtocolExample/>
+      <SolidProtocolExample />
     </main>
   );
 }

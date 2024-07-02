@@ -1,27 +1,27 @@
-import {useSignal} from "@preact/signals";
-import {useEffect} from "preact/hooks";
+import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 // Import from "@inrupt/solid-client-authn-browser"
-import {
-  login,
-  handleIncomingRedirect,
-  getDefaultSession,
-  fetch
-} from "@inrupt/solid-client-authn-browser";
+// import {
+//   login,
+//   handleIncomingRedirect,
+//   getDefaultSession,
+//   fetch
+// } from "@inrupt/solid-client-authn-browser";
 
 // Import from "@inrupt/solid-client"
-import {
-  addUrl,
-  addStringNoLocale,
-  createSolidDataset,
-  createThing,
-  getPodUrlAll,
-  getSolidDataset,
-  getThingAll,
-  getStringNoLocale,
-  removeThing,
-  saveSolidDatasetAt,
-  setThing
-} from "@inrupt/solid-client";
+// import {
+//   addUrl,
+//   addStringNoLocale,
+//   createSolidDataset,
+//   createThing,
+//   getPodUrlAll,
+//   getSolidDataset,
+//   getThingAll,
+//   getStringNoLocale,
+//   removeThing,
+//   saveSolidDatasetAt,
+//   setThing
+// } from "@inrupt/solid-client";
 
 // import {SCHEMA_INRUPT, RDF, AS} from "@inrupt/vocab-common-rdf";
 
@@ -35,13 +35,14 @@ import {
 // buttonRead.setAttribute("disabled", "disabled");
 // buttonLogin.setAttribute("disabled", "disabled");
 // buttonCreate.setAttribute("disabled", "disabled");
+const login = (x: any) => null;
 
 // 1a. Start Login Process. Call login() function.
 function loginToSelectedIdP(selectedIdP: string) {
   return login({
-  //   oidcIssuer: selectedIdP,
-  //   redirectUrl: new URL("/", window.location.href).toString(),
-  //   clientName: "Getting started app"
+    //   oidcIssuer: selectedIdP,
+    //   redirectUrl: new URL("/", window.location.href).toString(),
+    //   clientName: "Getting started app"
   });
 }
 
@@ -188,86 +189,116 @@ interface IdpSelectFormProps {
   onIdPChange?: EventListener;
 }
 
-function IdPSelectForm({onIdPChange}: IdpSelectFormProps) {
-  return <form id="login-form" action="#">
-    <fieldset className="x-fieldset x-fieldset--grid-2">
-      <label htmlFor="select-ident-provider">1. Select your Identity Provider: </label>
-      <div>
-        <select id="select-ident-provider"
-                name="select-ident-provider"
-                className="x-input"
-                onChange={onIdPChange}
-        >
-          <option value="">--Please select an Identity Provider (IdP)--</option>
-          {/*!-- Update the select-idp option if not using PodSpaces --*/}
-          <option value="https://login.inrupt.com">https://login.inrupt.com (PodSpaces)</option>
-        </select>
+function IdPSelectForm({ onIdPChange }: IdpSelectFormProps) {
+  return (
+    <form id="login-form" action="#">
+      <fieldset className="x-fieldset x-fieldset--grid-2">
+        <label htmlFor="select-ident-provider">
+          1. Select your Identity Provider:
+        </label>
+        <div>
+          <select
+            id="select-ident-provider"
+            name="select-ident-provider"
+            className="x-input"
+            onChange={onIdPChange}
+          >
+            <option value="">
+              --Please select an Identity Provider (IdP)--
+            </option>
+            {/*!-- Update the select-idp option if not using PodSpaces --*/}
+            <option value="https://login.inrupt.com">
+              https://login.inrupt.com (PodSpaces)
+            </option>
+          </select>
 
-        <button className="x-btn x-theme-primary x-filled">
-          <x-ripple></x-ripple>
-          <span>Login</span>
-        </button>
-      </div>
-    </fieldset>
-  </form>
+          <button className="x-btn x-theme-primary x-filled">
+            <x-ripple></x-ripple>
+            <span>Login</span>
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  );
 }
 
 interface PodURLsFetchFormProps {
   getPodUrlsDisabled?: boolean;
 }
 
-function PodURLsSelectForm({getPodUrlsDisabled}: PodURLsFetchFormProps) {
-  const formDisabled = getPodUrlsDisabled ? 'disabled' : null;
+function PodURLsSelectForm({ getPodUrlsDisabled }: PodURLsFetchFormProps) {
+  const formDisabled = getPodUrlsDisabled ? "disabled" : null;
 
   function onGetPodUrlsClick() {
   }
 
-  return <form id="read-form" action="#" onSubmit={onGetPodUrlsClick}>
-    <fieldset disabled={formDisabled}>
-      <label htmlFor="user-web-id">2. Logged in with your WebID: </label>
-      <input type="text" id="user-web-id" name="user-web-id" size="50" disabled/>
-      <button disabled={formDisabled}>Get Pod URL(s)</button>
-    </fieldset>
-  </form>
+  return (
+    <form id="read-form" action="#" onSubmit={onGetPodUrlsClick}>
+      <fieldset disabled={formDisabled}>
+        <label htmlFor="user-web-id">2. Logged in with your WebID:</label>
+        <input
+          type="text"
+          id="user-web-id"
+          name="user-web-id"
+          size="50"
+          disabled
+        />
+        <button disabled={formDisabled}>Get Pod URL(s)</button>
+      </fieldset>
+    </form>
+  );
 }
 
 interface WriteToPodFormProps {
-  podsList?: any[]
+  podsList?: any[];
 }
 
-function WriteToPodForm({podsList}: WriteToPodFormProps) {
-  return <form id="write">
-    <legend>3.Create a private reading list in my Pod.</legend>
-    <label id="podlabel" htmlFor="select-pod">a. Write to your Pod: </label>
+function WriteToPodForm({ podsList }: WriteToPodFormProps) {
+  return (
+    <form id="write">
+      <legend>3.Create a private reading list in my Pod.</legend>
+      <label id="podlabel" htmlFor="select-pod">a. Write to your Pod:</label>
 
-    <select id="select-pod" name="select-pod">
-      <option value="">--Please select your Pod--</option>
-      {podsList?.map(pod => (<option value={pod}>{pod}</option>))}
-    </select>
+      <select id="select-pod" name="select-pod">
+        <option value="">--Please select your Pod--</option>
+        {podsList?.map((pod) => <option value={pod}>{pod}</option>)}
+      </select>
 
-    <span>getting-started/readingList/myList</span>
+      <span>getting-started/readingList/myList</span>
 
-    <label id="listLabel" htmlFor="titles">b. Enter items to read: </label>
-    <textarea id="titles" name="titles" rows="5" cols="42">Leaves of Grass
-RDF 1.1 Primer</textarea>
-    <button name="btnCreate" id="btnCreate">Create</button>
+      <label id="listLabel" htmlFor="titles">b. Enter items to read:</label>
+      <textarea id="titles" name="titles" rows="5" cols="42">
+        Leaves of Grass RDF 1.1 Primer
+      </textarea>
+      <button name="btnCreate" id="btnCreate">Create</button>
 
-    <fieldset id="results">
-      <label>Create Reading List Status</label>
-      <span id="labelCreateStatus"></span>
-      <label id="labelRetrieved" htmlFor="savedtitles">Retrieved to validate:</label>
-      <textarea id="savedtitles" name="savedtitles" rows="5" cols="42" disabled></textarea>
-    </fieldset>
-  </form>
+      <fieldset id="results">
+        <label>Create Reading List Status</label>
+        <span id="labelCreateStatus"></span>
+        <label id="labelRetrieved" htmlFor="savedtitles">
+          Retrieved to validate:
+        </label>
+        <textarea
+          id="savedtitles"
+          name="savedtitles"
+          rows="5"
+          cols="42"
+          disabled
+        >
+        </textarea>
+      </fieldset>
+    </form>
+  );
 }
 
 export default function SolidProtocolExample() {
-  return <section>
-    <div className="h-limit-wrapper">
-      <IdPSelectForm/>
-      <PodURLsSelectForm/>
-      <WriteToPodForm/>
-    </div>
-  </section>
+  return (
+    <section>
+      <div className="h-limit-wrapper">
+        <IdPSelectForm />
+        <PodURLsSelectForm />
+        <WriteToPodForm />
+      </div>
+    </section>
+  );
 }
-
